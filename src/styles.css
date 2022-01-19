@@ -1,1 +1,42 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.table>tbody>tr>td,
+.table>tbody>tr>th,
+.table>tfoot>tr>td,
+.table>tfoot>tr>th,
+.table>thead>tr>td,
+.table>thead>tr>th{
+  vertical-align: middle !important;
+  text-align: center !important;
+}
+.color-success{
+  background-color: #21ce99 !important;
+  color: #fff;
+}
+
+
+.Aligner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.marginB30{
+  margin-bottom: 30px !important;
+}
+.align-center{
+text-align: center !important;
+}
+
+tr{
+  cursor: pointer;
+}
+tr:nth-child(even) {background-color: #f2f2f27a}
+tr:hover {background-color:#38a2ca14;}
+
+
+.mat-elevation-z8{
+  overflow-x: scroll
+}
