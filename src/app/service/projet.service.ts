@@ -9,7 +9,7 @@ import { Projet } from '../models/projet.model';
 export class ProjetService {
   ProjetUrl:string;
   constructor(private http:HttpClient) {
-    this.ProjetUrl = "http://localhost:8088/api/projet/"
+    this.ProjetUrl = "http://localhost:8080/api/projet/"
   }
 
   public findAll(): Observable<Projet[]> {

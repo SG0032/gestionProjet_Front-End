@@ -9,7 +9,7 @@ import { Collaborateur } from '../models/collaborateur.model';
 export class CollaborateurService {
   CollaborateurUrl:string;
   constructor(private http:HttpClient) {
-    this.CollaborateurUrl = "http://localhost:8088/api/collaborateur/"
+    this.CollaborateurUrl = "http://localhost:8080/api/collaborateur/"
   }
 
   public findAll(): Observable<Collaborateur[]> {

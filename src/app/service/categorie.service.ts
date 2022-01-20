@@ -9,7 +9,7 @@ import { Categorie } from '../models/categorie.models';
 export class CategorieService {
   categorieUrl:string;
   constructor(private http:HttpClient) {
-    this.categorieUrl = "http://localhost:8088/api/categorie/"
+    this.categorieUrl = "http://localhost:8080/api/categorie/"
   }
 
   public findAll(): Observable<Categorie[]> {
