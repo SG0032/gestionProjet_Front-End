@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Navbar brand -->
+    <a class="navbar-brand" href="#">Brand</a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div
+      class="collapse navbar-collapse"
+      id="navbarSupportedContent"
+    >
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true"
+          >Disabled</a
+          >
+        </li>
+      </ul>
+      <!-- Left links -->
+
+      <!-- Search form -->
+      <form class="d-flex input-group w-auto">
+        <input
+          type="search"
+          class="form-control"
+          placeholder="Type query"
+          aria-label="Search"
+        />
+        <button class="btn btn-outline-primary" type="button">
+          Search
+        </button>
+      </form>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+
+<div *ngIf="!loggedIn" class="form-signin" style="text-align:center;">
+    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+    <button color="warn" (click)="signInWithGoogle()">Login</button>
+</div>
+
+
+<div *ngIf="loggedIn" class="form-signin" style="text-align:center;">
+
+  <h1 class="h3 mb-3 font-weight-normal">Welcome </h1>
+  <button color="warn" (click)="signOut()">SignOut</button>
+
+</div>
+
+
+<!--<div class="card-block">-->
+<!--  <button class="btn btn-social-icon btn-google mx-1" (click)="signInWithGoogle()">Sign In Google</button>-->
+<!--</div>-->
