@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import { Projet } from '../models/projet.model'; 
+import { Projet } from '../models/projet.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class ProjetService {
     return this.http.get<Projet[]>(this.ProjetUrl);
   }
   public getProjet(idProjet : BigInteger): Observable<any>{
-    return this.http.get(`${this.ProjetUrl}idProjet/${idProjet}`);
+    return this.http.get(`${this.ProjetUrl}id/${idProjet}`);
   }
 
   public save(Projet: Projet) {
@@ -25,7 +25,8 @@ export class ProjetService {
   update(Projet: Projet) {
     return this.http.put(`${this.ProjetUrl}update`, Projet);
   }
-  delete(idProjet: BigInteger): Observable<any> {
-    return this.http.delete(`${this.ProjetUrl}idProjet/${idProjet}`, { responseType: 'text' });
+
+  delete(idProjet: bigint): Observable<any> {
+    return this.http.delete(`${this.ProjetUrl}id/${idProjet}`, { responseType: 'text' });
   }
 }

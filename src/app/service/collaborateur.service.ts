@@ -16,7 +16,7 @@ export class CollaborateurService {
     return this.http.get<Collaborateur[]>(this.CollaborateurUrl);
   }
   public getCollaborateur(idCollab : BigInteger): Observable<any>{
-    return this.http.get(`${this.CollaborateurUrl}idCollab/${idCollab}`);
+    return this.http.get(`${this.CollaborateurUrl}id/${idCollab}`);
   }
 
   public save(Collaborateur: Collaborateur) {
@@ -26,6 +26,6 @@ export class CollaborateurService {
     return this.http.put(`${this.CollaborateurUrl}update`, Collaborateur);
   }
   delete(idCollab: BigInteger): Observable<any> {
-    return this.http.delete(`${this.CollaborateurUrl}idCollab/${idCollab}`, { responseType: 'text' });
+    return this.http.delete(`${this.CollaborateurUrl}id/${idCollab}`, { responseType: 'text' });
   }
 }

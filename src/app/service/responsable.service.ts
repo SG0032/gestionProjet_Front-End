@@ -16,7 +16,7 @@ export class ResponsableService {
     return this.http.get<Responsable[]>(this.ResponsableUrl);
   }
   public getResponsable(idResponsable : BigInteger): Observable<any>{
-    return this.http.get(`${this.ResponsableUrl}idResponsable/${idResponsable}`);
+    return this.http.get(`${this.ResponsableUrl}id/${idResponsable}`);
   }
 
   public save(Responsable: Responsable) {
@@ -26,6 +26,6 @@ export class ResponsableService {
     return this.http.put(`${this.ResponsableUrl}update`, Responsable);
   }
   delete(idResponsable: BigInteger): Observable<any> {
-    return this.http.delete(`${this.ResponsableUrl}idResponsable/${idResponsable}`, { responseType: 'text' });
+    return this.http.delete(`${this.ResponsableUrl}id/${idResponsable}`, { responseType: 'text' });
   }
 }
