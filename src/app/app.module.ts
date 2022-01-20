@@ -1,16 +1,19 @@
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'
-import { BrowserModule } from '@angular/platform-browser';
-<<<<<<< HEAD
-import { HttpClientModule } from '@angular/common/http';
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CategorieComponent } from './categorie/categorie.component';
-import { ProjetComponent } from './projet/projet.component';
-import { TacheComponent } from './tache/tache.component';
-import { ResponsableComponent } from './responsable/responsable.component';
-import { CollaborateurComponent } from './collaborateur/collaborateur.component';
-import { ReactiveFormsModule} from '@angular/forms'
+import {NgModule} from '@angular/core';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms'
+import {BrowserModule} from '@angular/platform-browser';
+import {HttpClientModule} from "@angular/common/http";
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {GoogleLoginProvider, SocialAuthServiceConfig, SocialLoginModule} from 'angularx-social-login';
+import {HomeComponent} from './home/home.component';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import {ProdComponent} from './prod/prod.component';
+import {CategorieComponent} from './categorie/categorie.component';
+import {ProjetComponent} from './projet/projet.component';
+import {TacheComponent} from './tache/tache.component';
+import {ResponsableComponent} from './responsable/responsable.component';
+import {CollaborateurComponent} from './collaborateur/collaborateur.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,39 +22,18 @@ import { ReactiveFormsModule} from '@angular/forms'
     TacheComponent,
     ResponsableComponent,
     CollaborateurComponent,
-=======
-import {HttpClientModule} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { SocialLoginModule, SocialAuthServiceConfig } from 'angularx-social-login';
-import {  GoogleLoginProvider } from 'angularx-social-login';
-import { HomeComponent } from './home/home.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProdComponent } from './prod/prod.component';
-
-
-
-@NgModule({
-  declarations: [
-    AppComponent,
     HomeComponent,
-    ProdComponent
->>>>>>> b32074f4c43fee7426aa8675fdbef38c3b5ee685
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-<<<<<<< HEAD
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
-=======
+    ReactiveFormsModule,
     SocialLoginModule,
     HttpClientModule,
     FormsModule,
     NgbModule
->>>>>>> b32074f4c43fee7426aa8675fdbef38c3b5ee685
   ],
   providers: [{
     provide: 'SocialAuthServiceConfig',
