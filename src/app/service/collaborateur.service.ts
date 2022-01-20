@@ -9,14 +9,14 @@ import { Collaborateur } from '../models/collaborateur.model';
 export class CollaborateurService {
   CollaborateurUrl:string;
   constructor(private http:HttpClient) {
-    this.CollaborateurUrl = "http://localhost:8088/api/collaborateur/"
+    this.CollaborateurUrl = "http://localhost:8080/api/collaborateur/"
   }
 
   public findAll(): Observable<Collaborateur[]> {
     return this.http.get<Collaborateur[]>(this.CollaborateurUrl);
   }
   public getCollaborateur(idCollab : BigInteger): Observable<any>{
-    return this.http.get(`${this.CollaborateurUrl}idCollab/${idCollab}`);
+    return this.http.get(`${this.CollaborateurUrl}id/${idCollab}`);
   }
 
   public save(Collaborateur: Collaborateur) {
@@ -26,6 +26,6 @@ export class CollaborateurService {
     return this.http.put(`${this.CollaborateurUrl}update`, Collaborateur);
   }
   delete(idCollab: BigInteger): Observable<any> {
-    return this.http.delete(`${this.CollaborateurUrl}idCollab/${idCollab}`, { responseType: 'text' });
+    return this.http.delete(`${this.CollaborateurUrl}id/${idCollab}`, { responseType: 'text' });
   }
 }

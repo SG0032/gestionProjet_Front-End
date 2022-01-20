@@ -28,4 +28,19 @@ export class ProjetComponent implements OnInit {
       }
     )
   }
+
+
+  public onDelete(id:any) {
+    if(window.confirm("Etes vous sûr de vouloir supprimer ce produit ?")) {
+      console.log(id)
+      this.projetService.delete(id).subscribe(
+        data => {
+          console.log(data);
+          this.getProjets()
+          //this.back()
+        }, err => {
+          console.log(err);
+        })
+    }
+  }
 }
