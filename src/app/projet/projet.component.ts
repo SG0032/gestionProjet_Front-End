@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Projet} from "../models/projet.model";
+import {ProjetService} from "../service/projet.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-projet',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjetComponent implements OnInit {
 
-  constructor() { }
+  public projets: Projet[] | undefined
 
-  ngOnInit(): void {
+  constructor(private projetService: ProjetService) { }
+
+  ngOnInit(){
+    this.getProjets();
   }
 
+  public getProjets() : void{
+    this.projetService.findAll().subscribe(
+      (response: Projet[]) => {
+        this.projets = response;
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
 }
