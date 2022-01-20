@@ -19,7 +19,7 @@ export class ProjetService {
     return this.http.get(`${this.ProjetUrl}id/${idProjet}`);
   }
 
-  public save(Projet: Projet) {
+  public save(Projet: Projet | undefined) {
     return this.http.post<Projet>(this.ProjetUrl, Projet);
   }
   update(Projet: Projet) {
