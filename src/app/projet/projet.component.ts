@@ -53,7 +53,7 @@ export class ProjetComponent implements OnInit {
     }
   }
 
-  onAddProduit() {
+  onAddProjet() {
     this.projetService.save(this.projet).subscribe(
       (response: Projet) => {
         this.projet = response
@@ -65,7 +65,7 @@ export class ProjetComponent implements OnInit {
     )
   }
 
-  public onUpdateEmloyee(projet: Projet): void {
+  public onUpdateProjet(projet: Projet): void {
     this.projetService.update(projet).subscribe(
       data => {
         console.log(data);
@@ -85,7 +85,7 @@ export class ProjetComponent implements OnInit {
 
     if (mode === 'edit') {
       this.projet = projet;
-      button.setAttribute('data-target', '#updateEmployeeModal');
+      button.setAttribute('data-target', '#updateProjetModal');
     }
     // @ts-ignore
     container.appendChild(button);

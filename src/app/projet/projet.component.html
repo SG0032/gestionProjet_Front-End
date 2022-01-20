@@ -29,7 +29,7 @@
 
   </div>
 
-  <form #form (ngSubmit)="onAddProduit()">
+  <form #form (ngSubmit)="onAddProjet()">
     <label for="nom">id</label>
     <input  [(ngModel)]="projet.idProjet" #idProjet="ngModel" required class="form-control" type="text" id="id1" name="nom">
     <label for="nom">Nom</label>
@@ -68,7 +68,7 @@
 
           <div class="modal-footer">
             <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
-            <button (click)="onUpdateEmloyee(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+            <button (click)="onUpdateProjet(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
           </div>
         </form>
       </div>

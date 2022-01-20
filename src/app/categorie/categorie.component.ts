@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import {CategorieService} from "../service/categorie.service";
 import {Categorie} from "../models/categorie.models";
 import { FormsModule } from '@angular/forms';
+import {HttpErrorResponse} from "@angular/common/http";
 @Component({
   selector: 'app-categorie',
   templateUrl: './categorie.component.html',
@@ -31,6 +32,17 @@ export class CategorieComponent implements OnInit {
    this.onGetAllCategories()
  }
 
+ public getCategories(): void {
+  this.CategorieService.findAll().subscribe(
+    (response: Categorie[]) => {
+      this.categories = response;
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }
+  )
+}
+
  onDelete(idCategorie:BigInteger) {
    if(window.confirm("Etes vous sûr de vouloir supprimer ce Categorie ?")) {
      console.log(idCategorie)
@@ -57,4 +69,31 @@ export class CategorieComponent implements OnInit {
    )
  }
 
+ public onUpdateCategorie(categorie: Categorie): void {
+  this.CategorieService.update(categorie).subscribe(
+    data => {
+      console.log(data);
+      this.getCategories()
+      //this.back()
+    }, err => {
+      console.log(err);
+    })
+}
+
+
+ public onOpenModal(categorie: Categorie, mode: string): void {
+  const container = document.getElementById('main-container');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.style.display = 'none';
+  button.setAttribute('data-toggle', 'modal');
+
+  if (mode === 'edit') {
+    this.Categorie = categorie;
+    button.setAttribute('data-target', '#updateCategorieModal');
+  }
+  // @ts-ignore
+  container.appendChild(button);
+  button.click();
+}
 }

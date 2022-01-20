@@ -1,1 +1,77 @@
-<p>tache works!</p>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+<a>Add Tache</a><span>(curent)</span>
+
+<div class="container">
+  <div class="row">
+    <div *ngFor="let Tache of taches" class="col-md-6 col-xl-3">
+      <div class="card m-b-30">
+        <div class="card-body row">
+          <div class="col-6 card-title align-self-center mb-0">
+            <h5>{{Tache?.titreTache}}</h5>
+          </div>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Etat Avancement : <a href="#">{{Tache?.etatAvancement}}</a></li>
+          <li class="list-group-item">Description : {{Tache?.descriptionTache}}</li>
+        </ul>
+        <div class="card-body">
+          <div class="float-right btn-group btn-group-sm">
+            <a (click)="onOpenModal(Tache, 'edit')" class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Edit"><i class="fa fa-pencil"></i> </a>
+            <a href="#" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete" (click)="onDelete(Tache.idTache)"><i class="fa fa-times"></i></a>
+          </div>
+          <ul class="social-links list-inline mb-0">
+            <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip" class="tooltips" href="" data-original-title="GitHub"><i class="bi bi-github"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <form #form (ngSubmit)="onAddTache()">
+    <label for="nom">id</label>
+    <input  [(ngModel)]="tache.idTache" #idTache="ngModel" required class="form-control" type="text" id="id1" name="nom">
+    <label for="nom">Nom</label>
+    <input  [(ngModel)]="tache.titreTache" #titreTache="ngModel" required class="form-control" type="text" id="nom" name="nom">
+    <label for="desc">Description</label>
+    <input  [(ngModel)]="tache.descriptionTache" #descriptionTache="ngModel" required class="form-control" type="text" id="desc" name="desc">
+<!--    <label for="prix">responsables</label>-->
+<!--    <input   [(ngModel)]="projet.responsables" #responsables="ngModel" required class="form-control" type="text" id="prix" name="prix">-->
+    <input type="submit" class="btn form-control btn-block btn-success" value="Ajouter">
+  </form>
+</div>
+
+
+<div class="modal fade" id="updateEmployeeModal" tabindex="-1" role="dialog" aria-labelledby="employeeEditModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="updateEmployeeModalLabel">Edit Tache {{tache?.titreTache}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #editForm="ngForm">
+          <div class="form-group">
+            <label for="name">Titre Tache</label>
+            <input type="text" ngModel="{{tache?.titreTache}}" name="name" class="form-control" id="name" aria-describedby="emailHelp" placeholder="Name">
+          </div>
+          <input type="hidden" ngModel="{{tache?.idTache}}" name="id" class="form-control" id="id" placeholder="Email">
+          <div class="form-group">
+            <label for="email">Description Tache</label>
+            <input type="email" ngModel="{{tache?.descriptionTache}}" name="email" class="form-control" id="email" placeholder="Email">
+          </div>
+
+
+
+          <div class="modal-footer">
+            <button type="button" id="" data-dismiss="modal" class="btn btn-secondary">Close</button>
+            <button (click)="onUpdateTache(editForm.value)" data-dismiss="modal" class="btn btn-primary" >Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

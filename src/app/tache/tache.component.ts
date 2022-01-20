@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Tache } from '../models/tache.model';
-import { TacheService
- } from '../service/tache.service';
+import { TacheService } from '../service/tache.service';
+import {HttpErrorResponse} from "@angular/common/http";
 @Component({
   selector: 'app-tache',
   templateUrl: './tache.component.html',
@@ -24,6 +24,17 @@ export class TacheComponent implements OnInit {
  constructor(private  TacheService:TacheService) {
 
  }
+
+ public getTaches(): void {
+  this.TacheService.findAll().subscribe(
+    (response:Tache[]) => {
+      this.taches = response;
+    },
+    (error: HttpErrorResponse) => {
+      alert(error.message);
+    }
+  )
+}
 
  onGetAllTaches() {
    this.TacheService.findAll().subscribe(data => {
@@ -59,6 +70,33 @@ export class TacheComponent implements OnInit {
      }
    )
  }
+
+ public onUpdateTache(tache: Tache): void {
+  this.TacheService.update(tache).subscribe(
+    data => {
+      console.log(data);
+      this.getTaches()
+      //this.back()
+    }, err => {
+      console.log(err);
+    })
+}
+
+public onOpenModal(tache: Tache, mode: string): void {
+  const container = document.getElementById('main-container');
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.style.display = 'none';
+  button.setAttribute('data-toggle', 'modal');
+
+  if (mode === 'edit') {
+    this.tache = tache;
+    button.setAttribute('data-target', '#updateTacheModal');
+  }
+  // @ts-ignore
+  container.appendChild(button);
+  button.click();
+}
 
 
 }
