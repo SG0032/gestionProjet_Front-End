@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import { Tache } from '../models/tache.model'; 
+import { Tache } from '../models/tache.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +16,7 @@ export class TacheService {
     return this.http.get<Tache[]>(this.TacheUrl);
   }
   public getTache(idTache : BigInteger): Observable<any>{
-    return this.http.get(`${this.TacheUrl}idTache/${idTache}`);
+    return this.http.get(`${this.TacheUrl}id/${idTache}`);
   }
 
   public save(Tache: Tache) {
@@ -26,6 +26,6 @@ export class TacheService {
     return this.http.put(`${this.TacheUrl}update`, Tache);
   }
   delete(idTache: BigInteger): Observable<any> {
-    return this.http.delete(`${this.TacheUrl}idTache/${idTache}`, { responseType: 'text' });
+    return this.http.delete(`${this.TacheUrl}id/${idTache}`, { responseType: 'text' });
   }
 }
